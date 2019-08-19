@@ -68,6 +68,52 @@ title 为**红旗专车**  ----  只有订单确认页面为 **确认订单**
 ### 行程结束，结算页面接口数据结构不同
 
 {% hint style="danger" %}
-忘记是否一样了，记得是有个dto什么之类的，后面看情况吧
+忘记具体差异了，记得是有个dto什么之类的，后续测试再完善
 {% endhint %}
+
+### 行程中，大头针展示时间和距离
+
+两个平台由于接口不同，所展示的逻辑也不同，最初相关接口仅为首汽设计，因为**首汽有请求接单司机距离乘客时间和距离的接口**。并且title文字岁参数固定。
+
+后加入红旗之后，需要扩展原来接口。遂接口添加一个参数。参数主要用来区分各自平台和对应状态，方便日后修改提示语。接口如下
+
+{% code-tabs %}
+{% code-tabs-item title="XYCustomCalloutView.h" %}
+```objectivec
+/**
+ 发送时间和距离，让司机大头针展示当前的时间和距离
+
+ @param distance 距离字符串 单位米
+ @param duration 时间字符串 单位秒  传 nil 不展示时间
+ @param platAndStatus 用车平台和状态  1是司机接乘客 2是送乘客去目的地
+ */
++ (void)postNotyfationWithDistance:(NSString *)distance duration:(nullable NSString *)duration platAndStatus:(NSString *)platAndStatus;
+
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+{% hint style="info" %}
+**首汽约车【轮询司机位置可拿到司机距离和预估时间】**
+
+1. **上车前**
+   1. **路径规划：司机到乘客（10s重绘）**
+   2. **提示语：司机距您x公里，预计用时x分钟**
+2. **上车后**
+   1. **路径规划：司机到目的地（10s重绘）**
+   2. **提示语：距离终点x公里\(手动计算\)**
+{% endhint %}
+
+{% hint style="info" %}
+**红旗智行【无法拿到司机距离和预估时间】**
+
+1. **上车前**
+   1. **路径规划：司机到乘客（10s重绘）**
+   2. **提示语：司机距您x公里（手动计算）**
+2. **上车后**
+   1. **路径规划：司机到目的地（10s重绘）**
+   2. **提示语：距离终点x公里（手动计算）**
+{% endhint %}
+
+\*\*\*\*
 
