@@ -29,7 +29,7 @@ description: 阐述约车平台和用户身份之间存储逻辑和工具类的�
   </tbody>
 </table>### **约车平台代码定义**
 
-```text
+```objectivec
 /// 约车平台，默认为首汽
 typedef NS_ENUM(NSUInteger, BookCarPlatform) {
     BookCarPlatformShouQi,
@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, BookCarPlatform) {
 
 ### **用户身份类型定义**
 
-```text
+```objectivec
 /// 首汽用户类型
 typedef enum : NSUInteger {
     UserTypeDefault = 1,            // 普通雇员
@@ -97,7 +97,7 @@ typedef enum : NSUInteger {
 
 ### 以下为工具类头文件接口声明
 
-```text
+```objectivec
 @interface XYBookCarPlatformAndUserTypeTool : NSObject
 
 #pragma mark - 输入设置 平台和身份类型
@@ -139,7 +139,7 @@ typedef enum : NSUInteger {
 
 ### 抽取常用宏
 
-```text
+```objectivec
 // 几个常用宏
 
 /// 设置用户类型，@"0" @"1" @"2"

@@ -24,7 +24,7 @@ description: 只有用户当前在约车主页的时候可以轮询当前订单�
 
 实际就是当XYBookCarVC处于当前页面的时候才可以轮询订单状态，非当前页面停止轮询。此要配合订单恢复一起使用。因为退出约车主页，不会再轮询，当再次进入页面，也要查看是否要进行订单恢复。有需要恢复订单，会重新轮询，否则即不用恢复亦无须再次轮询
 
-```
+```objectivec
 ViewWillAppear 方法中设置为 canPollingOrderStatus = YES
 
 viewDidDisappear 设置为 canPollingOrderStatus = NO
