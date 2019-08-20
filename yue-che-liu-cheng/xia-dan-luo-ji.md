@@ -2,7 +2,5 @@
 
 ## 下单流程图如下
 
-{% hint style="info" %}
-本页面计划使用一个下单流程图
-{% endhint %}
+![](../.gitbook/assets/wei-ming-ming-wen-jian-1.png)
 
