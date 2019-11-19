@@ -77,8 +77,7 @@ title 为**红旗专车**  ----  只有订单确认页面为 **确认订单**
 
 后加入红旗之后，需要扩展原来接口。遂接口添加一个参数。参数主要用来区分各自平台和对应状态，方便日后修改提示语。接口如下
 
-{% code-tabs %}
-{% code-tabs-item title="XYCustomCalloutView.h" %}
+{% code title="XYCustomCalloutView.h" %}
 ```objectivec
 /**
  发送时间和距离，让司机大头针展示当前的时间和距离
@@ -90,8 +89,7 @@ title 为**红旗专车**  ----  只有订单确认页面为 **确认订单**
 + (void)postNotyfationWithDistance:(NSString *)distance duration:(nullable NSString *)duration platAndStatus:(NSString *)platAndStatus;
 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 {% hint style="info" %}
 **首汽约车【轮询司机位置可拿到司机距离和预估时间】**
